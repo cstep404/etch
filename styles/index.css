@@ -2,3 +2,13 @@
     margin: 0;
     padding: 0;
 }
+
+.row {
+    border: 1px solid black;
+    display: flex;
+}
+
+.box {
+    border: 1px solid black;
+    flex: 1;
+}
