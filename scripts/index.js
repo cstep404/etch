@@ -1,3 +1,4 @@
+const resetBtnSelector = document.querySelector('#reset-btn');
 const mainContainerSelector = document.querySelector('#main-container');
 
 // create the element, manipulate the element, and then place it on page by appending
@@ -23,10 +24,22 @@ const rowSelector = document.querySelectorAll('.box');
 
 rowSelector.forEach((row) => {
     row.addEventListener(
-        "mouseover",
+        'mouseover',
         (e) => {
             // highlight the mouseenter target
-            e.target.style.backgroundColor = "lightgreen";
+            e.target.style.backgroundColor = 'lightgreen';
         }
     )
 });
+
+resetBtnSelector.addEventListener(
+    "click",
+    (e) => {
+        console.log('Reset button was clicked!');
+        const confirmReset = prompt('Enter a number between 16 and 100: ');
+        // verify a number between 16 and 100
+        if ((Number(confirmReset) < 16) || (Number(confirmReset) > 100)) {
+            console.log('Please enter a valid number between 16 and 100');
+        }
+    }
+);
