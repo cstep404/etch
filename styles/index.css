@@ -4,11 +4,11 @@
 }
 
 .row {
-    border: 1px solid black;
     display: flex;
+    border: 1px solid black;
 }
 
 .box {
-    border: 1px solid black;
     flex: 1;
+    border: 1px solid black;
 }

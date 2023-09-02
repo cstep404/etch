@@ -16,3 +16,17 @@ for (i = 1; i <= 16; i++) {
     }
     
 }
+
+const rowSelector = document.querySelectorAll('.box');
+
+// create a hover effect that leaves a trail based on where the mouse goes
+
+rowSelector.forEach((row) => {
+    row.addEventListener(
+        "mouseover",
+        (e) => {
+            // highlight the mouseenter target
+            e.target.style.backgroundColor = "lightgreen";
+        }
+    )
+});
