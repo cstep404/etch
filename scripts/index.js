@@ -5,22 +5,26 @@ const gridLogSelector = document.querySelector('#grid-log');
 
 const gridLog = document.createElement('h3');
 
-// create the element, manipulate the element, and then place it on page by appending
+let gridSize = 16;
 
-for (i = 1; i <= 16; i++) {
-    const rowCreator = document.createElement('div');
-    rowCreator.className = 'row';
-    rowCreator.id = `row${i}`;
-    mainContainerSelector.appendChild(rowCreator);
-
-    for (j = 1; j <= 16; j++) {
-        const divCreator = document.createElement('div');
-        divCreator.textContent = 'div';
-        divCreator.className = 'box';
-        rowCreator.appendChild(divCreator);
-    }
+const generateGrid = (size) => {
+    for (i = 1; i <= size; i++) {
+        const rowCreator = document.createElement('div');
+        rowCreator.className = 'row';
+        rowCreator.id = `row${i}`;
+        mainContainerSelector.appendChild(rowCreator);
     
+        for (j = 1; j <= gridSize; j++) {
+            const divCreator = document.createElement('div');
+            divCreator.textContent = 'div';
+            divCreator.className = 'box';
+            rowCreator.appendChild(divCreator);
+        }
+        
+    }
 }
+
+generateGrid(gridSize);
 
 const rowSelector = document.querySelectorAll('.box');
 
@@ -49,6 +53,10 @@ resetBtnSelector.addEventListener(
         } else {
             gridLog.textContent = `Setting grid size to: ${Number(confirmReset)}`;
             gridLogSelector.appendChild(gridLog);
+            gridSize = Number(confirmReset);
+            generateGrid(gridSize);
         }
     }
 );
+
+// create the element, manipulate the element, and then place it on page by appending
