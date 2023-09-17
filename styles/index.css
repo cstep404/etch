@@ -4,6 +4,7 @@
 }
 
 #main-container {
+    border: 2px solid black;
 }
 
 .row {
@@ -15,5 +16,6 @@
 .box {
     flex: 1;
     /* borders to visualize boxes */
-    /* border: 1px solid black; */
+    /* border: 1px solid black */
+    height: 5px;
 }
