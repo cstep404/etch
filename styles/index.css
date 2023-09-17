@@ -9,11 +9,11 @@
 .row {
     display: flex;
     /* borders to visualize boxes */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .box {
     flex: 1;
     /* borders to visualize boxes */
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
