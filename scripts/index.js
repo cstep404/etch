@@ -14,7 +14,7 @@ const generateGrid = (size) => {
         rowCreator.id = `row${i}`;
         mainContainerSelector.appendChild(rowCreator);
     
-        for (j = 1; j <= gridSize; j++) {
+        for (j = 1; j <= size; j++) {
             const divCreator = document.createElement('div');
             divCreator.textContent = 'div';
             divCreator.className = 'box';
@@ -24,9 +24,35 @@ const generateGrid = (size) => {
     }
 }
 
+const removeGrid = () => {
+    mainContainerSelector.innerHTML = "";
+}
+
+// generate the initial 16 size grid
 generateGrid(gridSize);
 
+// select the classes with the name box
 const rowSelector = document.querySelectorAll('.box');
+
+resetBtnSelector.addEventListener(
+    "click",
+    (e) => {
+        console.log('Reset button was clicked!');
+        const confirmReset = prompt('Enter a number between 16 and 100: ');
+        // verify a number between 16 and 100
+        if ((Number(confirmReset) < 16) || (Number(confirmReset) > 100)) {
+            console.log('Please enter a valid number between 16 and 100.');
+            gridLog.textContent = `${Number(confirmReset)} is not a valid option. Please enter a valid number between 16 and 100.`;
+            gridLogSelector.appendChild(gridLog);
+        } else {
+            gridLog.textContent = `Setting grid size to: ${Number(confirmReset)}`;
+            gridLogSelector.appendChild(gridLog);
+            gridSize = Number(confirmReset);
+            removeGrid();
+            generateGrid(gridSize);
+        }
+    }
+);
 
 // create a hover effect that leaves a trail based on where the mouse goes
 
@@ -39,24 +65,5 @@ rowSelector.forEach((row) => {
         }
     )
 });
-
-resetBtnSelector.addEventListener(
-    "click",
-    (e) => {
-        console.log('Reset button was clicked!');
-        const confirmReset = prompt('Enter a number between 16 and 100: ');
-        // verify a number between 16 and 100
-        if ((Number(confirmReset) < 16) || (Number(confirmReset) > 100)) {
-            console.log('Please enter a valid number between 16 and 100.');
-            gridLog.textContent = `${Number(confirmReset)} is not a valid option. Please enter a valid number between 16 and 100`;
-            gridLogSelector.appendChild(gridLog);
-        } else {
-            gridLog.textContent = `Setting grid size to: ${Number(confirmReset)}`;
-            gridLogSelector.appendChild(gridLog);
-            gridSize = Number(confirmReset);
-            generateGrid(gridSize);
-        }
-    }
-);
 
 // create the element, manipulate the element, and then place it on page by appending

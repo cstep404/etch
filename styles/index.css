@@ -3,12 +3,17 @@
     padding: 0;
 }
 
+#main-container {
+}
+
 .row {
     display: flex;
+    /* borders to visualize boxes */
     border: 1px solid black;
 }
 
 .box {
     flex: 1;
+    /* borders to visualize boxes */
     border: 1px solid black;
 }
