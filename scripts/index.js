@@ -24,6 +24,7 @@ const generateGrid = (size) => {
             const divCreator = document.createElement('div');
             //divCreator.textContent = 'div';
             divCreator.className = 'box';
+            divCreator.style.width = `calc(100% / ${size})`;
             rowCreator.appendChild(divCreator);
         }
         
@@ -42,7 +43,7 @@ const removeGrid = () => {
 const handleDraw = (e) => {
     console.log(e);
     if (e.target.classList.contains('box')) {
-        e.target.style.backgroundColor = 'lightgreen';
+        e.target.style.backgroundColor = 'black';
     }
 }
 
